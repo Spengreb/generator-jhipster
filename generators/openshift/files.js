@@ -12,10 +12,10 @@ function writeFiles() {
                 this.app = this.appConfigs[i];
                 
                 if (this.app.applicationType === 'monolith') {
-                    this.template('_deployment.yml', `src/main/docker/openshift/${appName}-deployment-template.yml`); //monolithic
+                    this.template('_deployment.yml', `src/main/docker/openshift/${appName}-deployment-template.yml`); 
                     this.template('gradle/_openshift.gradle', `gradle/openshift.gradle`);
                 } else {
-                    this.template('_deployment.yml', `${this.directoryPath}/ocp/${appName}/${appName}-deployment.yml`); //microsservice
+                    this.template('_deployment.yml', `${this.directoryPath}/ocp/${appName}/${appName}-deployment.yml`); 
                 } 
                 
                 if (this.app.prodDatabaseType !== 'no' && this.app.prodDatabaseType !== 'mssql') {
